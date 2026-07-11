@@ -24,7 +24,7 @@ const iconMap: Record<string, FC<LucideProps>> = {
   Heart, Eye, Zap, TrendingUp,
 };
 const heroPortrait = "/images/hon-hero-image.jpeg";
-const aboutPortrait = "/images/hon-image-1.jpg";
+const aboutPortrait = "/images/hon-image-2.jpeg";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect } from "react";
 import { cn } from "@/utils";
