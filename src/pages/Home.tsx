@@ -120,9 +120,10 @@ export default function Home() {
                 <div className="text-xs text-white/80">15+ Years in Service</div>
               </div>
             </div>
+                */}
           </motion.div>
         </div>
-        */}
+    
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce text-white z-20">
