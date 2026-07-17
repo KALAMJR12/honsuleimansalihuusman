@@ -7,6 +7,7 @@ export const programs = [
     timeline: "January - March (Annual)",
     status: "open",
     category: "Education",
+    image: "/images/program-scholarship.jpg",
     benefits: [
       "Full tuition coverage for one academic year",
       "Stipend for books and materials",
@@ -21,6 +22,7 @@ export const programs = [
     timeline: "Next batch starts May 2024",
     status: "coming-soon",
     category: "Technology",
+    image: "/images/program-ict.jpg",
     benefits: [
       "Free laptop for top performers",
       "Certification upon completion",
@@ -35,6 +37,7 @@ export const programs = [
     timeline: "Quarterly",
     status: "featured",
     category: "Healthcare",
+    image: "/images/program-medical.jpg",
     benefits: [
       "Free medication",
       "Specialist consultations",
@@ -49,6 +52,7 @@ export const programs = [
     timeline: "Applications open August 2024",
     status: "coming-soon",
     category: "Economy",
+    image: "/images/program-business.jpg",
     benefits: [
       "Grants ranging from ₦50,000 to ₦200,000",
       "Business management training",
