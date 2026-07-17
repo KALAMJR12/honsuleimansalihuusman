@@ -67,7 +67,7 @@ export default function Home() {
       <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
         <HeroSlider />
         
-        <div className="container mx-auto px-4 md:px-6 z-10 grid lg:grid-cols-2 gap-12 items-center relative">
+        <div className="container mx-auto px-4 md:px-6 z-10 grid lg:grid-cols-1 gap-12 items-center relative">
           <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="pt-10 lg:pt-0">
             <motion.div variants={fadeUp}>
               <Badge className="mb-6 py-1.5 px-4 text-sm bg-white/10 text-white backdrop-blur border-white/20">
@@ -100,35 +100,8 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/*
-          <motion.div variants={scaleIn} initial="hidden" animate="visible" className="relative h-[600px] lg:h-[800px] hidden lg:block z-10">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 rounded-[2.5rem]" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10 rounded-[2.5rem]" />
-            
-            {/*
-            <img 
-              src={heroPortrait} 
-              alt="Hon. Suleiman Salihu Usman" 
-              className="object-cover w-full h-full object-bottom rounded-[2.5rem] ring-4 ring-white/30 shadow-[0_0_80px_rgba(255,255,255,0.15)] relative z-0"
-            />
-            */}
-            
-            {/* Floating Badge */}
-            {/*
-            <div className="absolute top-1/4 -left-8 bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-4 shadow-xl z-20 hidden lg:flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg">
-                <CheckCircle2 className="w-6 h-6" />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-white">Proven Community Leadership</div>
-                <div className="text-xs text-white/80">15+ Years in Service</div>
-              </div>
-            </div>
-                */}
-          </motion.div>
-          */}
+          {/* Portrait rectangle commented out - was: motion.div with scaleIn animation, gradients, and hero image */}
         </div>
-    
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce text-white z-20">
