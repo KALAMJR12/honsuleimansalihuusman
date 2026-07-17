@@ -103,11 +103,14 @@ export default function Home() {
           <motion.div variants={scaleIn} initial="hidden" animate="visible" className="relative h-[600px] lg:h-[800px] hidden lg:block z-10">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 rounded-[2.5rem]" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10 rounded-[2.5rem]" />
+            
+            {/*
             <img 
               src={heroPortrait} 
               alt="Hon. Suleiman Salihu Usman" 
               className="object-cover w-full h-full object-bottom rounded-[2.5rem] ring-4 ring-white/30 shadow-[0_0_80px_rgba(255,255,255,0.15)] relative z-0"
             />
+            */}
             
             {/* Floating Badge */}
             {/*
