@@ -110,6 +110,7 @@ export default function Home() {
             />
             
             {/* Floating Badge */}
+            {/*
             <div className="absolute top-1/4 -left-8 bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-4 shadow-xl z-20 hidden lg:flex items-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
               <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg">
                 <CheckCircle2 className="w-6 h-6" />
@@ -121,6 +122,7 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
+        */}
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce text-white z-20">
