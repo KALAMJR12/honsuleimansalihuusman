@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { fadeUp } from "@/animations/variants";
 import { useSEO } from "@/hooks/useSEO";
 import { projects } from "@/data/projects";
-import { SectionHeader } from "@/components/common/SectionHeader";
 import { Badge } from "@/components/common/Badge";
 import { Calendar, Users, MapPin, Target } from "lucide-react";
 import { cn } from "@/utils";
 
 export default function CommunityImpact() {
   useSEO({ title: "Community Impact" });
+  const { t } = useTranslation();
 
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeUp}>
@@ -16,10 +17,10 @@ export default function CommunityImpact() {
         <div className="absolute inset-0 hero-pattern opacity-20" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
-            Community <span className="text-accent">Impact</span>
+            {t("impact.page.hero_pre")} <span className="text-accent">{t("impact.page.hero_accent")}</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            We don't just talk about development; we build it. Explore the projects that have transformed communities across Zamfara.
+            {t("impact.page.hero_desc")}
           </motion.p>
         </div>
       </section>
@@ -60,13 +61,13 @@ export default function CommunityImpact() {
                   <div className="grid grid-cols-2 gap-4 mb-8">
                     <div className="bg-slate-50 p-4 rounded-xl flex flex-col justify-center">
                       <div className="flex items-center text-sm font-bold text-primary mb-2 uppercase tracking-wider">
-                        <Users className="w-4 h-4 mr-2" /> Beneficiaries
+                        <Users className="w-4 h-4 mr-2" /> {t("impact.beneficiaries")}
                       </div>
                       <div className="text-lg font-bold text-foreground">{project.beneficiaries}</div>
                     </div>
                     <div className="bg-slate-50 p-4 rounded-xl flex flex-col justify-center">
                       <div className="flex items-center text-sm font-bold text-primary mb-2 uppercase tracking-wider">
-                        <MapPin className="w-4 h-4 mr-2" /> Location
+                        <MapPin className="w-4 h-4 mr-2" /> {t("impact.location")}
                       </div>
                       <div className="text-lg font-bold text-foreground">{project.location}</div>
                     </div>
@@ -75,18 +76,18 @@ export default function CommunityImpact() {
                   <div className="space-y-8">
                     <div>
                       <h4 className="flex items-center text-xl font-bold text-foreground mb-3">
-                        <Target className="w-6 h-6 mr-2 text-accent" /> The Problem
+                        <Target className="w-6 h-6 mr-2 text-accent" /> {t("impact.page.the_problem")}
                       </h4>
                       <p className="text-muted-foreground leading-relaxed bg-red-50 p-4 rounded-xl border border-red-100">{project.problem}</p>
                     </div>
                     <div>
                       <h4 className="flex items-center text-xl font-bold text-foreground mb-3">
-                        <Target className="w-6 h-6 mr-2 text-green-600" /> The Solution
+                        <Target className="w-6 h-6 mr-2 text-green-600" /> {t("impact.page.the_solution")}
                       </h4>
                       <p className="text-muted-foreground leading-relaxed bg-green-50 p-4 rounded-xl border border-green-100">{project.solution}</p>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-foreground mb-3">The Impact</h4>
+                      <h4 className="text-xl font-bold text-foreground mb-3">{t("impact.page.the_impact")}</h4>
                       <p className="text-muted-foreground leading-relaxed">{project.impact}</p>
                     </div>
                   </div>
@@ -94,11 +95,11 @@ export default function CommunityImpact() {
                   <div className="mt-8 pt-8 border-t flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
                     <div className="flex items-center font-medium">
                       <Calendar className="w-4 h-4 mr-2 text-primary" /> 
-                      {project.startDate} to {project.endDate}
+                      {project.startDate} {t("impact.page.to")} {project.endDate}
                     </div>
                     {project.partners.length > 0 && (
                       <div className="font-medium">
-                        Partners: <span className="text-foreground">{project.partners.join(", ")}</span>
+                        {t("impact.page.partners")} <span className="text-foreground">{project.partners.join(", ")}</span>
                       </div>
                     )}
                   </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { fadeUp } from "@/animations/variants";
 import { useSEO } from "@/hooks/useSEO";
 import { gallery } from "@/data/gallery";
@@ -9,6 +10,7 @@ import { cn } from "@/utils";
 
 export default function Gallery() {
   useSEO({ title: "Photo Gallery" });
+  const { t } = useTranslation();
   
   const [filter, setFilter] = useState("All");
   const [index, setIndex] = useState(-1);
@@ -31,10 +33,10 @@ export default function Gallery() {
         <div className="absolute inset-0 hero-pattern opacity-20" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
-            Photo <span className="text-accent">Gallery</span>
+            {t("gallery.page.hero_pre")} <span className="text-accent">{t("gallery.page.hero_accent")}</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Moments from the campaign trail, community meetings, and impactful projects.
+            {t("gallery.page.hero_desc")}
           </motion.p>
         </div>
       </section>

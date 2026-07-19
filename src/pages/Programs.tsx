@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { fadeUp, staggerContainer } from "@/animations/variants";
 import { useSEO } from "@/hooks/useSEO";
 import { programs } from "@/data/programs";
 import { ProgramCard } from "@/components/common/ProgramCard";
+import { cn } from "@/utils";
+
 const scholarshipImg = "/images/program-scholarship.jpg";
 const ictImg = "/images/program-ict.jpg";
 const medicalImg = "/images/program-medical.jpg";
@@ -12,7 +15,6 @@ const agricImg = "/images/program-agric.jpg";
 const womenImg = "/images/program-women.jpg";
 const leadershipImg = "/images/program-leadership.jpg";
 const vocationalImg = "/images/program-vocational.jpg";
-import { cn } from "@/utils";
 
 const programImages: Record<string, string> = {
   "scholarship-program": scholarshipImg,
@@ -27,13 +29,14 @@ const programImages: Record<string, string> = {
 
 export default function Programs() {
   useSEO({ title: "Community Programs" });
+  const { t } = useTranslation();
   const [filter, setFilter] = useState("all");
 
   const filters = [
-    { label: "All Programs", value: "all" },
-    { label: "Open / Active", value: "open" },
-    { label: "Coming Soon", value: "coming-soon" },
-    { label: "Completed", value: "completed" },
+    { label: t("programs.page.filter_all"), value: "all" },
+    { label: t("programs.page.filter_open"), value: "open" },
+    { label: t("programs.page.filter_coming_soon"), value: "coming-soon" },
+    { label: t("programs.page.filter_completed"), value: "completed" },
   ];
 
   const filteredPrograms = programs.filter(p => {
@@ -48,10 +51,10 @@ export default function Programs() {
         <div className="absolute inset-0 hero-pattern opacity-20" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
-            Empowerment <span className="text-accent">Programs</span>
+            {t("programs.page.hero_pre")} <span className="text-accent">{t("programs.page.hero_accent")}</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Discover ongoing initiatives designed to provide skills, health, and economic stability.
+            {t("programs.page.hero_desc")}
           </motion.p>
         </div>
       </section>
@@ -76,7 +79,7 @@ export default function Programs() {
           </div>
 
           <motion.div 
-            key={filter} // Re-animate when filter changes
+            key={filter}
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -94,7 +97,7 @@ export default function Programs() {
 
           {filteredPrograms.length === 0 && (
             <div className="text-center py-20 text-muted-foreground text-lg">
-              No programs found for this category.
+              {t("programs.page.empty")}
             </div>
           )}
         </div>

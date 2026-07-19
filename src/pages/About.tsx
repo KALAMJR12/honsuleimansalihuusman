@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { fadeUp, staggerContainer } from "@/animations/variants";
 import { useSEO } from "@/hooks/useSEO";
 import { aboutData } from "@/data/about";
@@ -7,11 +8,12 @@ import { statistics } from "@/data/statistics";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { AnimatedCounter } from "@/components/common/AnimatedCounter";
 import * as Icons from "lucide-react";
+
 const aboutPortrait = "/images/hon-image-2.jpeg";
-const heroPortrait = "/images/hon-hero-image.jpeg";
 
 export default function About() {
   useSEO({ title: "About Hon. Suleiman Salihu Usman" });
+  const { t } = useTranslation();
 
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeUp}>
@@ -20,10 +22,10 @@ export default function About() {
         <div className="absolute inset-0 hero-pattern opacity-20" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
-            Meet <span className="text-accent">Hon. Suleiman</span>
+            {t("about.page.hero_pre")} <span className="text-accent">{t("about.page.hero_accent")}</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            A lifetime of dedication to the prosperity, peace, and progress of Zamfara State.
+            {t("about.page.hero_desc")}
           </motion.p>
         </div>
       </section>
@@ -47,7 +49,7 @@ export default function About() {
                 />
               </div>
               <div className="mt-8 bg-slate-50 p-6 rounded-2xl border">
-                <h3 className="font-bold text-lg mb-2 text-foreground">Personal Philosophy</h3>
+                <h3 className="font-bold text-lg mb-2 text-foreground">{t("about.page.philosophy_title")}</h3>
                 <p className="text-muted-foreground italic leading-relaxed">"{aboutData.quote}"</p>
               </div>
             </motion.div>
@@ -59,14 +61,14 @@ export default function About() {
               viewport={{ once: true }}
               className="prose prose-lg prose-slate"
             >
-              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-8">A Journey of Service</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-8">{t("about.page.journey_title")}</h2>
               {aboutData.bio.map((paragraph, index) => (
                 <p key={index} className="text-muted-foreground leading-relaxed mb-6">
                   {paragraph}
                 </p>
               ))}
 
-              <h3 className="text-2xl font-bold text-foreground mt-12 mb-6">Core Values & Principles</h3>
+              <h3 className="text-2xl font-bold text-foreground mt-12 mb-6">{t("about.page.values_title")}</h3>
               <div className="grid sm:grid-cols-2 gap-6 not-prose">
                 {aboutData.values.map((value, i) => {
                   const Icon = Icons[value.icon as keyof typeof Icons] as React.ElementType;
@@ -90,8 +92,8 @@ export default function About() {
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <SectionHeader 
-            title="Leadership Timeline" 
-            subtitle="Milestones in a career dedicated to community development."
+            title={t("about.page.timeline_title")}
+            subtitle={t("about.page.timeline_subtitle")}
           />
           
           <div className="relative border-l-2 border-primary/20 ml-4 md:ml-1/2">
