@@ -2,7 +2,7 @@ services:
   - type: web
     name: suleiman-salihu-usman-website
     env: static
-    buildCommand: rm -rf node_modules package-lock.json && npm install && npm run build
+    buildCommand: npm ci --force && npm run build
     staticPublishPath: dist
     # SPA routing — all paths fall through to index.html
     routes:
