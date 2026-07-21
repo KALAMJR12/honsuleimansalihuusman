@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { fadeUp, staggerContainer } from "@/animations/variants";
 import { useSEO } from "@/hooks/useSEO";
 import { news } from "@/data/news";
@@ -7,10 +8,10 @@ import { NewsCard } from "@/components/common/NewsCard";
 import { Badge } from "@/components/common/Badge";
 import { Clock, ArrowRight } from "lucide-react";
 import { formatDate, cn } from "@/utils";
-import { Link } from "wouter";
 
 export default function News() {
   useSEO({ title: "News & Updates" });
+  const { t } = useTranslation();
   const [filter, setFilter] = useState("all");
 
   const filters = ["all", "Announcement", "Community", "Policy", "Event"];
@@ -25,10 +26,10 @@ export default function News() {
         <div className="absolute inset-0 hero-pattern opacity-20" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
-            News & <span className="text-accent">Updates</span>
+            {t("news.page.hero_pre")} <span className="text-accent">{t("news.page.hero_accent")}</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Stay informed on our latest activities, policy announcements, and community engagements.
+            {t("news.page.hero_desc")}
           </motion.p>
         </div>
       </section>
@@ -49,7 +50,7 @@ export default function News() {
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-6">
-                    <Badge className="bg-accent text-white uppercase tracking-wide">Featured</Badge>
+                    <Badge className="bg-accent text-white uppercase tracking-wide">{t("news.page.featured")}</Badge>
                     <Badge variant="outline">{featuredArticle.category}</Badge>
                   </div>
                   <div className="flex items-center text-sm font-semibold text-primary mb-4 uppercase tracking-wider">
@@ -59,7 +60,7 @@ export default function News() {
                   <p className="text-lg text-muted-foreground mb-8 leading-relaxed line-clamp-3">{featuredArticle.excerpt}</p>
                   <div className="mt-auto">
                     <span className="inline-flex items-center text-primary font-bold group-hover:underline text-lg">
-                      Read Full Story <ArrowRight className="w-5 h-5 ml-2" />
+                      {t("news.page.read_story")} <ArrowRight className="w-5 h-5 ml-2" />
                     </span>
                   </div>
                 </div>
@@ -69,7 +70,7 @@ export default function News() {
 
           {/* Filters */}
           <div className="flex flex-wrap items-center gap-3 mb-12">
-            <span className="font-bold text-foreground mr-2">Filter by:</span>
+            <span className="font-bold text-foreground mr-2">{t("news.page.filter_label")}</span>
             {filters.map((f) => (
               <button
                 key={f}
@@ -81,7 +82,7 @@ export default function News() {
                     : "bg-white text-muted-foreground border hover:bg-slate-100 hover:text-foreground"
                 )}
               >
-                {f === "all" ? "All Updates" : f}
+                {f === "all" ? t("news.page.filter_all") : f}
               </button>
             ))}
           </div>
@@ -102,7 +103,7 @@ export default function News() {
 
           {filteredNews.length === 0 && (
             <div className="text-center py-20 text-muted-foreground text-lg">
-              No articles found in this category.
+              {t("news.page.empty")}
             </div>
           )}
         </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useTranslation } from "react-i18next";
 import { fadeUp, staggerContainer } from "@/animations/variants";
 import { useSEO } from "@/hooks/useSEO";
 import { visionAreas } from "@/data/vision";
@@ -9,15 +10,9 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function Vision() {
   useSEO({ title: "My Vision for Zamfara" });
+  const { t } = useTranslation();
 
-  const policyPriorities = [
-    "Establishing a state-wide Technical & Vocational Education Training (TVET) fund.",
-    "Subsidizing modern farming equipment for registered agricultural cooperatives.",
-    "Upgrading 50 primary healthcare centers to operate 24/7 with solar power.",
-    "Providing zero-interest micro-loans for market women and small business owners.",
-    "Creating three regional IT Hubs to train youth in software development.",
-    "Implementing community-led security initiatives in partnership with state agencies."
-  ];
+  const policyPriorities = t("vision.page.priorities", { returnObjects: true }) as string[];
 
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeUp}>
@@ -25,10 +20,10 @@ export default function Vision() {
         <div className="absolute inset-0 hero-pattern opacity-20" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
-            A Vision for <span className="text-accent">Tomorrow</span>
+            {t("vision.page.hero_pre")} <span className="text-accent">{t("vision.page.hero_accent")}</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            We are not just promising change; we are presenting a detailed, actionable blueprint to transform Zamfara into a hub of prosperity, security, and opportunity for all.
+            {t("vision.page.hero_desc")}
           </motion.p>
         </div>
       </section>
@@ -65,8 +60,8 @@ export default function Vision() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
           <SectionHeader 
-            title="Immediate Policy Priorities" 
-            subtitle="The specific actions we will champion in the House of Representatives from Day One."
+            title={t("vision.page.priorities_title")}
+            subtitle={t("vision.page.priorities_subtitle")}
           />
           
           <div className="grid md:grid-cols-2 gap-6 mt-12">
@@ -87,7 +82,7 @@ export default function Vision() {
 
           <div className="mt-16 text-center">
             <Link href="/volunteer" className="inline-flex items-center px-8 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-primary/90 transition-all shadow-lg hover:-translate-y-1">
-              Support Our Vision <ArrowRight className="w-5 h-5 ml-2" />
+              {t("vision.page.cta")} <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </div>
         </div>
